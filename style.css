@@ -1,0 +1,90 @@
+/* Vista móvil (Mobile-first) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .galeria {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  figure {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #ddd;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Vista Tableta (a partir de 772px) */
+  @media (min-width: 772px) {
+    .galeria {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    figure {
+      border-radius: 50%;
+    }
+  
+    /* Última figura ocupa ambas columnas */
+    .galeria figure:last-child {
+      grid-column: span 2;
+    }
+  }
+  
+  /* Vista Pantalla Grande (a partir de 992px) */
+  @media (min-width: 992px) {
+    .galeria {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  
+    /* Cada tercera figura ocupa ambas columnas */
+    .galeria figure:nth-child(3n) {
+      grid-column: span 2;
+    }
+  
+    /* Eliminar border-radius de todas las figuras */
+    figure {
+      border-radius: 0;
+    }
+  }
+  
+  /* Prefieres Movimiento Reducido */
+  @media (prefers-reduced-motion: reduce) {
+    body {
+      overflow: hidden;
+    }
+  }
+  
+  /* Modo Oscuro (prefieres esquema de color oscuro) */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+  
+    figure {
+      background-color: #333;
+      border-color: #000;
+    }
+  
+    figcaption {
+      color: #ffeb3b;
+    }
+  }
+  
